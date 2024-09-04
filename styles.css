@@ -10,6 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    overflow: hidden; /* Evita el scroll del body */
 }
 
 .container {
@@ -20,7 +21,13 @@ body {
     width: 90%;
     max-width: 600px;
     text-align: center;
-    position: relative;
+    overflow: auto; /* Habilita el scroll dentro del contenedor */
+    max-height: 80vh; /* Limita la altura del contenedor */
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+}
+
+.container::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar en Chrome, Safari y Edge */
 }
 
 h1 {
@@ -149,17 +156,27 @@ p {
     background-color: #e64a19; /* Efecto de hover más oscuro */
 }
 
-.info-section {
+.info-section, .project-info, .faq {
     margin-top: 20px;
     padding: 10px;
     background: #333;
     border-radius: 5px;
     color: #b0b0b0;
+    text-align: left;
 }
 
-.info-section h3 {
+.info-section h3, .project-info h3, .faq h3 {
     margin-top: 0;
-    color: #e0e0e0; /* Color claro para el título */
+    color: #e0e0e0; /* Color claro para los títulos */
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-item h4 {
+    margin-top: 0;
+    color: #e0e0e0;
 }
 
 footer {
@@ -167,7 +184,7 @@ footer {
     color: #b0b0b0;
     padding: 10px 20px;
     text-align: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     border-top: 1px solid #444;
