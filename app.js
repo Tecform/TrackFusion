@@ -26,7 +26,7 @@ function updateFileList() {
 async function combineAudios() {
     const audioFiles = document.getElementById('audioFiles').files;
     if (audioFiles.length === 0) {
-        alert('Por favor, selecciona al menos un archivo de audio.');
+        alert('Please, select atleast one file..');
         return;
     }
 
